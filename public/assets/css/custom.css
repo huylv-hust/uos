@@ -1,0 +1,119 @@
+.employment_mark {
+    background: #ee8236 none repeat scroll 0 0;
+    border-radius: 3px;
+    color: white;
+    display: block;
+    float: left;
+    font-size: 11px;
+    font-weight: bold;
+    height: 17px;
+    margin-left: 5px;
+    text-align: center;
+    width: 17px;
+}
+#search_box input[type="submit"]{
+    border: none;
+    width: 60px;
+    height: 30px;
+    float: left;
+    background: #9bc346;
+    color: #FFF;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+}
+#search_box input[type="submit"]{
+    width: 15%;
+}
+#recruit .job .detail,
+#recruit .job .place,
+#recruit .job .yen,
+#recruit .job em{
+    word-wrap: break-word;
+}
+
+#page_search_detail #tabbox01 .thumbnail li {
+    text-align: center;
+}
+
+.pagination ul li.active a {
+    background-color: #333;
+    color: #fff;
+}
+
+ul.pagination {
+    margin-top: 0 !important;
+}
+
+#page_search_detail #tabbox01 .pic p {
+    height: 46px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.search_img a{
+    display: block;
+    height: 242px;
+    width: auto;
+}
+
+.search_img .image{
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 242px;
+}
+
+#detail_image .image{
+    border: 1px solid #ccc;
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 350px;
+}
+.image_detail{
+    border: 1px solid #ccc;
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 126px;
+}
+
+.urgent .img, .pick_up .img{
+    height: 120px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/*Custom responsive*/
+@media screen and (max-width:768px) {
+    #detail_image .image{
+        height: 300px;
+    }
+    .image_detail{
+        height: 106px;
+    }
+} /* End Media 768px */
+/*--------------------------------------------------------------------------------------------------
+---- Media 420px */
+@media screen and (max-width:420px) {
+    #detail_image .image{
+        height: 200px;
+    }
+    .image_detail{
+        height: 70px;
+    }
+
+} /* End Media 420px */
+
+
+
+
+
+
