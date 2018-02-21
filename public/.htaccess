@@ -1,0 +1,112 @@
+# Multiple Environment config, set this to development, staging or production
+# SetEnv FUEL_ENV production
+
+<IfModule mod_rewrite.c>
+
+	RewriteEngine on
+
+	RewriteRule ^kodawari/([a-z0-9_]+)$ search?trouble[]=$1 [L]
+	RewriteRule area/hokkaido search?addr1=1 [L]
+	RewriteRule area/aomori search?addr1=2 [L]
+	RewriteRule area/iwate search?addr1=3 [L]
+	RewriteRule area/miyagi search?addr1=4 [L]
+	RewriteRule area/akita search?addr1=5 [L]
+	RewriteRule area/yamagata search?addr1=6 [L]
+	RewriteRule area/fukushima search?addr1=7 [L]
+	RewriteRule area/ibaraki search?addr1=8 [L]
+	RewriteRule area/tochigi search?addr1=9 [L]
+	RewriteRule area/gunma search?addr1=10 [L]
+	RewriteRule area/saitama search?addr1=11 [L]
+	RewriteRule area/chiba search?addr1=12 [L]
+	RewriteRule area/tokyo search?addr1=13 [L]
+	RewriteRule area/kanagawa search?addr1=14 [L]
+	RewriteRule area/niigata search?addr1=15 [L]
+	RewriteRule area/toyama search?addr1=16 [L]
+	RewriteRule area/ishikawa search?addr1=17 [L]
+	RewriteRule area/fukui search?addr1=18 [L]
+	RewriteRule area/yamanashi search?addr1=19 [L]
+	RewriteRule area/nagano search?addr1=20 [L]
+	RewriteRule area/gifu search?addr1=21 [L]
+	RewriteRule area/shizuoka search?addr1=22 [L]
+	RewriteRule area/aichi search?addr1=23 [L]
+	RewriteRule area/mie search?addr1=24 [L]
+	RewriteRule area/shiga search?addr1=25 [L]
+	RewriteRule area/kyoto search?addr1=26 [L]
+	RewriteRule area/osaka search?addr1=27 [L]
+	RewriteRule area/hyogo search?addr1=28 [L]
+	RewriteRule area/nara search?addr1=29 [L]
+	RewriteRule area/wakayama search?addr1=30 [L]
+	RewriteRule area/tottori search?addr1=31 [L]
+	RewriteRule area/shimane search?addr1=32 [L]
+	RewriteRule area/okayama search?addr1=33 [L]
+	RewriteRule area/hiroshima search?addr1=34 [L]
+	RewriteRule area/yamaguchi search?addr1=35 [L]
+	RewriteRule area/tokushima search?addr1=36 [L]
+	RewriteRule area/kagawa search?addr1=37 [L]
+	RewriteRule area/ehime search?addr1=38 [L]
+	RewriteRule area/kochi search?addr1=39 [L]
+	RewriteRule area/fukuoka search?addr1=40 [L]
+	RewriteRule area/saga search?addr1=41 [L]
+	RewriteRule area/nagasaki search?addr1=42 [L]
+	RewriteRule area/kumamoto search?addr1=43 [L]
+	RewriteRule area/oita search?addr1=44 [L]
+	RewriteRule area/miyazaki search?addr1=45 [L]
+	RewriteRule area/kagoshima search?addr1=46 [L]
+	RewriteRule area/okinawa search?addr1=47 [L]
+
+	# NOTICE: If you get a 404 play with combinations of the following commented out lines
+	#AllowOverride All
+	#RewriteBase /wherever/fuel/is
+
+    # Make sure directory listing is disabled
+	Options +FollowSymLinks -Indexes
+
+	# Restrict your site to only one domain
+	# !important USE ONLY ONE OPTION
+
+	# Option 1: To rewrite "www.domain.com -> domain.com" uncomment the following lines.
+	#RewriteCond %{HTTPS} !=on
+	#RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+	#RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+	# Option 2: To rewrite "domain.com -> www.domain.com" uncomment the following lines.
+	#RewriteCond %{HTTPS} !=on
+	#RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
+	#RewriteCond %{HTTP_HOST} (.+)$ [NC]
+	#RewriteRule ^(.*)$ http://www.%1/$1 [R=301,L]
+
+	# Remove index.php from URL
+	#RewriteCond %{HTTP:X-Requested-With}	!^XMLHttpRequest$
+	#RewriteCond %{THE_REQUEST}				^[^/]*/index\.php [NC]
+	#RewriteRule ^index\.php(.*)$			$1 [R=301,NS,L]
+
+    # make HTTP Basic Authentication work on php5-fcgi installs
+    <IfModule mod_fcgid.c>
+        RewriteCond %{HTTP:Authorization} .
+        RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    </IfModule>
+
+	# Send request via index.php if not a real file or directory
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+
+	# deal with php5-cgi first
+	<IfModule mod_fcgid.c>
+        RewriteRule ^(.*)$ index.php?/$1 [QSA,L]
+	</IfModule>
+
+	<IfModule !mod_fcgid.c>
+
+		# for normal Apache installations
+		<IfModule mod_php5.c>
+			RewriteRule ^(.*)$ index.php/$1 [L]
+		</IfModule>
+
+		# for Apache FGCI installations
+		<IfModule !mod_php5.c>
+			RewriteRule ^(.*)$ index.php?/$1 [QSA,L]
+		</IfModule>
+
+	</IfModule>
+
+</IfModule>

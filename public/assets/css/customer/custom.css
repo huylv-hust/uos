@@ -1,0 +1,73 @@
+.hide {
+    display: none!important;
+}
+.editing {
+    background: #ffc0cb none repeat scroll 0 0;
+    border: 1px dashed #dc143c;
+    color: #dc143c;
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 10px;
+}
+ul.img-contents li:nth-child(4) {
+    padding: 0;
+}
+
+div#pager ul li.active a{
+    color: #009d3d;
+    font-weight: bold;
+    text-decoration: none;
+}
+div#pager ul li.disabled a,div#pager ul li.disabled a:hover,div#pager ul li.disabled a:focus{
+    text-decoration: none;
+    cursor: not-allowed;
+}
+
+div.complete-01 h2.error {
+    color: #f83e3e;
+}
+
+input.dateform {
+    width: 150px !important;
+}
+
+div.text-center {
+    text-align:  center;
+}
+
+button.btn-info {
+    background-color: #5bc0de;
+    color: #fff;
+    -moz-user-select: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+div.mb10 {
+    margin-bottom: 10px;
+}
+
+div.mt10 {
+    margin-top: 10px;
+}
+
+.text-example {
+    color: #31708f;
+    font-size: 90%;
+}
+
+.text-explain {
+    color: #3c763d;
+    font-size: 90%;
+    font-weight: normal;
+}
